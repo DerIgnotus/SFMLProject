@@ -2,15 +2,32 @@
 
 sf::Vector2f viewSize(1024, 768);
 sf::VideoMode vm(viewSize.x, viewSize.y);
-sf::RenderWindow window(vm, "Hello SFMLGame !!!", sf::Style::Default);
+sf::RenderWindow window(vm, "VARY BEAUTIFUL SFML GAME MATE BYE ME", sf::Style::Default);
+
+sf::Texture skyTexture;
+sf::Sprite skySprite;
+
+void draw() {
+	// Draw Sky Sprite
+	window.draw(skySprite);
+}
+
+void init() {
+	// Load Sky Texture
+	skyTexture.loadFromFile("Assets/graphics/sky.png");
+
+	// Set and Attach Texture to Sprite
+	skySprite.setTexture(skyTexture);
+}
 
 int main() {
-	// Initialize Game Objects
+	init();
 
 	while (window.isOpen()) {
-		// Handle Keyboard Events
-		// Update Game Objects in the scene
-		// Render Game Objects
+		window.clear(sf::Color::Red);
+		draw();
+
+		window.display();
 	}
 
 	return 0;
